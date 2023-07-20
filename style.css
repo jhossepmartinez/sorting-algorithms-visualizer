@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid black;
 }
 
 .bar-container {
@@ -10,9 +11,9 @@
 }
 
 .bar {
-    width: 16px;
+    width: 8px;
     height: 50px;
     background-color: White;
-    margin: 0 2px;
+    margin: 1px;
     border: 1px solid black;
 }
