@@ -1,5 +1,5 @@
 let genArrayBtn = document.getElementById("gen-array-btn");
-let sortArrayBtn = document.getElementById("sort-array-btn");
+let bubbleSortBtn = document.getElementById("bubble-sort-btn");
 let selectionSortBtn = document.getElementById("selection-sort-btn");
 
 
@@ -24,7 +24,6 @@ function generateArray(currentValue) {
     for (let i = 0; i < arrayLenght; i++) {
         newArray[i] = randomInt(minValue, maxValue);
     }
-    console.log(daskhda)
     return newArray;
 };
 
@@ -39,7 +38,6 @@ function renderizeBars(array) {
         let newBar = document.createElement("div");
         newBar.classList.add("bar");
         newBar.style.height = array[i] * 10 + "px";
-        newBar.style.borderRadius = "3px";
         barContainer.appendChild(newBar);
     }
 };
@@ -59,11 +57,11 @@ async function bubbleSort(array) {
                 bars[j + 1].style.height = array[j + 1] * 10 + "px";
                 bars[j].style.backgroundColor = "Green";
                 bars[j + 1].style.backgroundColor = "Green";
-                await sleep(1);
+                await sleep(10);
             }
         }
     }
-    // cleanBars();
+    cleanBars();
     return array;
 }
 
@@ -81,14 +79,14 @@ async function selectionSort(inputArr) {
         for(let j = i+1; j < n; j++){
 
             bars[j].style.backgroundColor = "LightGray";
-            await sleep(10);
+            await sleep(1);
             if(inputArr[j] < inputArr[min]) {
                 min=j; 
                 bars[min].style.backgroundColor = "Red";
             }
         }
         bars[min].style.backgroundColor = "Green";
-        await sleep(500);
+        await sleep(300);
         if (min != i) {
             // Swapping the elements
             let tmp = inputArr[i]; 
@@ -130,7 +128,7 @@ genArrayBtn.addEventListener("click", function () {
     renderizeBars(array);
 })
 
-sortArrayBtn.addEventListener("click", function () {
+bubbleSortBtn.addEventListener("click", function () {
     let sortedArray = bubbleSort(array);
     console.log(sortedArray);
 })
